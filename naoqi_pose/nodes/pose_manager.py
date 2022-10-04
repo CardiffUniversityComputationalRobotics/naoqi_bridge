@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # ROS node to provide a few joint angle trajectories as default poses
 #
@@ -47,7 +47,7 @@ from std_msgs.msg import String
 from std_msgs.msg import Bool
 from std_srvs.srv import Empty
 
-import xapparser
+from xapparser import xapparser
 
 class PoseManager():
     def __init__(self):
@@ -107,7 +107,7 @@ class PoseManager():
 
         poses = rospy.get_param('~poses', None)
         if poses:
-            for key,value in poses.iteritems():
+            for key,value in poses.items():
                 try:
                 # TODO: handle multiple points in trajectory
                     trajectory = JointTrajectory()
